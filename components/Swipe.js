@@ -101,6 +101,7 @@ class Swipe extends Component {
 
       if (i === this.state.index) {
         return (
+          // This renders the top card
           <Animated.View
             key={item[this.props.keyProps]}
             style={[this.getCardStyle(), styles.cardStyle, { zIndex: 99 }]}
@@ -113,6 +114,9 @@ class Swipe extends Component {
 
       return (
         <Animated.View
+        // renders any other cards stacked below the first card
+        // View tags work, Animated.View tag would resolve the lagging when
+        // second card come up as the first
           key={item[this.props.keyProps]}
           style={[styles.cardStyle, { top: 10 * (i - this.state.index), zIndex: 5 }]}
         >
